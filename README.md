@@ -8,7 +8,7 @@
 
 3. 下載好後與Github抓下的檔案放在 <mark> /usr/local/app </mark>
 
-4. 運行+測試的環境是Windows Subsystem for Linux 2 (WSL2)
+4. 運行+測試的環境是Windows Subsystem for Linux 2 (WSL2) - Ubuntu-22.04
 
 5. 需要事先在Linux安裝好Docker 以下是目前用到的
     * docker-buildx
