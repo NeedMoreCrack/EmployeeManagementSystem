@@ -10,11 +10,11 @@
 
 4. 運行+測試的環境是Windows Subsystem for Linux 2 (WSL2) - Ubuntu-22.04
 
-5. 需要事先在Linux安裝好Docker 以下是目前用到的
-    * docker-buildx
-    * docker-compose-v2
-    * docker.io
-    
+5. ~~需要事先在Linux安裝好Docker 以下是目前用到的~~
+    * ~~docker-buildx~~
+    * ~~docker-compose-v2~~
+    * ~~docker.io~~
+
 
 6. 專案啟動命令
     > docker compose up -d
@@ -24,4 +24,4 @@
 
 ---
 
-1. 2025.07.08 新增腳本
+1. 2025.07.08 新增Docker安裝及鏡像拉取腳本
