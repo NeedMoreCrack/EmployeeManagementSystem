@@ -1,0 +1,41 @@
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    ports:
+      - "3307:3306"
+    environment:
+      TZ: Asia/Taipei
+      MYSQL_ROOT_PASSWORD: 321321321
+    volumes:
+      - "/usr/local/app/mysql/conf:/etc/mysql/conf.d"
+      - "/usr/local/app/mysql/data:/var/lib/mysql"
+      - "/usr/local/app/mysql/init:/docker-entrypoint-initdb.d"
+    networks:
+      - myweb-net
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: myweb-backend
+    ports:
+      - "9090:9090"
+    networks:
+      - myweb-net
+    depends_on:
+      - mysql
+  frontend:
+    image: nginx:1.28.0
+    container_name: myweb-frontend
+    ports:
+      - "80:80"
+    volumes:
+      - "/usr/local/app/nginx/conf/nginx.conf:/etc/nginx/nginx.conf"
+      - "/usr/local/app/nginx/html:/usr/share/nginx/html"
+    depends_on:
+      - backend
+    networks:
+      - myweb-net
+networks:
+  myweb-net:
+    name: myWeb
